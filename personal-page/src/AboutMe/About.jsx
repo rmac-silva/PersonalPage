@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Paper from "@mui/material/Paper";
 import Breadcrum from "../Navigation/Breadcrum";
+import LightSwitch from "../Icons/LightSwitch";
+import Links from "../Navigation/Links";
 /**
  * Hover-driven background switcher.
  *
@@ -30,7 +32,7 @@ const mapWordToCategory = {
     Italy: "Rome",
     "the UK": "UK",
     Germany: "Dresden",
-    "the Czech Republic": "Prague",
+    "Czech Republic": "Prague",
     origami: "Origami",
     Origami: "Origami",
     Switzerland: "Switzerland",
@@ -61,11 +63,27 @@ function HoverWord({ text, onHover }) {
 export default function About() {
     const [visibleLayer, setVisibleLayer] = useState(0);
     const [layerUrls, setLayerUrls] = useState(["", ""]);
+    const [isDark, setIsDark] = useState(false);
     const cycleRef = useRef(null);
     const indexRef = useRef(0);
     const currentCategoryRef = useRef(null);
     const prefersReducedMotion = useRef(false);
     const loadRequestRef = useRef(0);
+
+    // Listen for theme changes
+    useEffect(() => {
+        const checkTheme = () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            setIsDark(theme === 'dark');
+        };
+
+        checkTheme();
+
+        const observer = new MutationObserver(checkTheme);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+        return () => observer.disconnect();
+    }, []);
 
     useEffect(() => {
         //Shuffle the image arrays to avoid always starting from the same image
@@ -76,7 +94,7 @@ export default function About() {
                 [arr[i], arr[j]] = [arr[j], arr[i]];
             }
         });
-    },[]);
+    }, []);
 
     useEffect(() => {
         prefersReducedMotion.current = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -184,11 +202,28 @@ export default function About() {
         run();
     }
 
+    // Theme colors
+    const lightColors = {
+        paperBg: 'rgba(255, 255, 255, 0.7)',
+        textPrimary: '#1a1a1a',
+        textSecondary: '#333333',
+        linkHover: '#3874f5',
+    };
+
+    const darkColors = {
+        paperBg: 'rgba(30, 30, 30, 0.85)',
+        textPrimary: '#ffffff',
+        textSecondary: '#e0e0e0',
+        linkHover: '#a8d5ff',
+    };
+
+    const colors = isDark ? darkColors : lightColors;
+
     return (
         <>
-        <Breadcrum segments={["About Me"]}>
-        </Breadcrum>
-            <div className="relative min-h-screen w-screen overflow-hidden bg-center bg-cover">
+            <Breadcrum segments={["About Me"]}>
+            </Breadcrum>
+            <div className="relative min-h-screen w-full overflow-hidden bg-center bg-cover">
                 {/* background layers (double buffer) */}
                 <div
                     aria-hidden
@@ -218,55 +253,61 @@ export default function About() {
                 {/* Page content (keeps original structure) */}
                 <div className="min-h-screen w-screen bg-center bg-cover flex items-start justify-center" style={{ backgroundImage: "url('/images/about-bg.jpg')" }}>
                     <div className="p-10 rounded-lg !w-[80%] mt-10 mx-4">
-                        <Paper elevation={3} className="p-8 !bg-white/70 rounded-lg">
-                            <h1 className="!text-4xl !md:text-4xl font-extrabold text-neutral-800 mb-4">About Me</h1>
+                        <Paper elevation={3} className="p-8 rounded-lg" style={{ backgroundColor: colors.paperBg }}>
+                            <h1 className="!text-4xl !md:text-4xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>About Me</h1>
 
-                            <div className="text-2xl text-black leading-8">
+                            <div className="text-2xl leading-8" style={{ color: colors.textSecondary }}>
                                 <p className="mb-3">
-                                    Hi! My name is Ricardo Silva and I'm a software developer with a Master's Degree in Computer Science from NOVA FCT in Portugal.
+                                    Hi! My name is Ricardo Silva and I'm a software engineer with a Master's Degree in Computer Science from NOVA FCT in Portugal, currently looking for employment.
                                 </p>
 
                                 <p className="mb-3">
                                     I was born and raised in Lisbon,{" "}
                                     <HoverWord text="Portugal" onHover={startCycleFor} /> where I also completed my primary and secondary education. I enjoy travelling, having had the opportunity to visit{" "}
-                                    <HoverWord text="Spain" onHover={startCycleFor} />, <HoverWord text="Italy" onHover={startCycleFor} />, <HoverWord text="the UK" onHover={startCycleFor} />, <HoverWord text="Germany" onHover={startCycleFor} />, <HoverWord text="Switzerland" onHover={startCycleFor} /> and <HoverWord text="the Czech Republic" onHover={startCycleFor} /> so far. I'm a big fan of video games, board games and tabletop RPGs.
+                                    <HoverWord text="Spain" onHover={startCycleFor} />, <HoverWord text="Italy" onHover={startCycleFor} />, <HoverWord text="the UK" onHover={startCycleFor} />, <HoverWord text="Germany" onHover={startCycleFor} />, <HoverWord text="Switzerland" onHover={startCycleFor} /> and the <HoverWord text="Czech Republic" onHover={startCycleFor} /> so far.
                                 </p>
 
                                 <p className="mb-3">
-                                    In the summer I like going on hikes, playing beach volleyball and swimming (be it in the pool, lake or sea!). During the colder months I like practicing indoor volleyball, table tennis, folding <HoverWord text="origami" onHover={startCycleFor} /> figurines and relaxing at home playing video games with friends.
+                                    I'm a big fan of video games, board games and tabletop RPGs, but I also like going outside the house (<i>sometimes a foreign concept for us software developers</i>). In the summer I like going on hikes, playing beach volleyball and swimming (be it in the pool, lake or sea!). During the colder months I like practicing indoor volleyball, table tennis, folding <HoverWord text="origami" onHover={startCycleFor} /> figurines and relaxing at home, either playing games or just hanging out with friends.
                                 </p>
                             </div>
                         </Paper>
 
-                        <Paper elevation={3} className="p-8 !bg-white/70 mt-6 text-2xl rounded-lg">
-                            <h1 className="!text-3xl mt-8 !md:text-3xl font-extrabold text-neutral-800 mb-4">Why Software Development?</h1>
-                            <p className="mb-3">
-                                I grew up playing games since I was a kid. At around 8 years old I would watch my brother play World of Warcraft for hours and I loved every second of it. This childhood interest for games led me to pursue software development as my final career choice.
+                        <Paper elevation={3} className="p-8 mt-6 text-2xl rounded-lg" style={{ backgroundColor: colors.paperBg }}>
+                            <h1 className="!text-3xl mt-8 !md:text-3xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>Why Software Development?</h1>
+                            <p className="mb-3" style={{ color: colors.textSecondary }}>
+                                I grew up playing games since I was a kid. At around 8 years old I would watch my brother play World of Warcraft for hours and I loved every second of it. This childhood interest for games and computers in general led me to pursue software development as my final career choice (<i>with some guidance along the way too</i>).
                             </p>
-                            <p className="mb-3">
-                                Much like my love for games, I quickly gained a passion for coding during my time in university. It allowed me to think of ridiculous ideas for games or projects with my friends, creating absurd scenarios that I would then try ( <i>and sometimes fail</i> ) to implement. Or seeing a cool project someone else made and thinking "I want to make something like that!".
+                            <p className="mb-3" style={{ color: colors.textSecondary }}>
+                                Much like my love for games, I quickly gained a passion for coding during my time in university. It allowed me to think of ridiculous ideas for games or projects with my friends, creating absurd scenarios that I would then try ( <i>and sometimes fail</i> ) to implement. Or seeing a cool project someone else made and thinking "I want to make that".
                             </p>
                         </Paper>
 
-                        <Paper elevation={3} className="p-8 !bg-white/70 mt-6 text-2xl rounded-lg">
-                            <h1 className="!text-3xl mt-8 !md:text-3xl font-extrabold text-neutral-800 mb-4">So... What Now?</h1>
-                            <p className="mb-3">
+                        <Paper elevation={3} className="p-8 mt-6 text-2xl rounded-lg" style={{ backgroundColor: colors.paperBg }}>
+                            <h1 className="!text-3xl mt-8 !md:text-3xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>So... What Now?</h1>
+                            <p className="mb-3" style={{ color: colors.textSecondary }}>
                                 Having finished university I'm now looking for job opportunities that will allow me to grow as a developer, allowing me to learn new skills and experiment with new technologies no matter the field.
                             </p>
-                            <p className="mb-3">
-                                Meanwhile I've kept myself busy by working on personal projects, learning things I did not get the chance to learn during my time in university. This includes trying to finish projects I started but never got to finish, and setting up a domain to host my own projects!
+                            <p className="mb-3" style={{ color: colors.textSecondary }}>
+                                Meanwhile I've kept myself busy by working on personal projects, learning things I did not get the chance to learn during my time in university. This includes trying to finish projects I started but never got to finish, and finally setting up a domain to host my own projects (<i>including this page</i>).
                             </p>
-                            <p className="mb-3 font-semibold">Thank you for taking the time to read a bit about me! If you'd like to get in touch, feel free to reach out through my links below.</p>
+                            <p className="mb-3 font-semibold" style={{ color: colors.textPrimary }}>Thank you for taking the time to read a bit about me! If you'd like to get in touch, feel free to reach out through my links below.</p>
                         </Paper>
 
-                        <div className="mt-12 flex gap-6">
-                            <a href="https://github.com/rmac-silva/" target="_blank" rel="noopener noreferrer" className="text-2xl text-slate-700 bg-white p-3 rounded-4xl hover:text-indigo-700 underline">GitHub</a>
-                            <a href="#" target="_blank" rel="noopener noreferrer" className="text-2xl text-slate-700 bg-white p-3 rounded-4xl hover:text-indigo-700 underline">LinkedIn</a>
-                            <a href="https://ko-fi.com/rmacsilva" target="_blank" rel="noopener noreferrer" className="text-2xl text-slate-700 bg-white p-3 rounded-4xl hover:text-indigo-700 underline">KoFi</a>
-                            <a href="https://discord.com/users/249619725682868224" target="_blank" rel="noopener noreferrer" className="text-2xl text-slate-700 bg-white p-3 rounded-4xl hover:text-indigo-700 underline">Discord</a>
-                        </div>
+                        {/* <div className="mt-12 flex gap-6">
+                            <a href="https://github.com/rmac-silva/" target="_blank" rel="noopener noreferrer" className="text-2xl p-3 rounded-4xl underline" style={{ backgroundColor: colors.paperBg, color: colors.textSecondary }}>GitHub</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" className="text-2xl p-3 rounded-4xl underline" style={{ backgroundColor: colors.paperBg, color: colors.textSecondary }}>LinkedIn</a>
+                            <a href="https://ko-fi.com/rmacsilva" target="_blank" rel="noopener noreferrer" className="text-2xl p-3 rounded-4xl underline" style={{ backgroundColor: colors.paperBg, color: colors.textSecondary }}>KoFi</a>
+                            <a href="https://discord.com/users/249619725682868224" target="_blank" rel="noopener noreferrer" className="text-2xl p-3 rounded-4xl underline" style={{ backgroundColor: colors.paperBg, color: colors.textSecondary }}>Discord</a>
+                        </div> */}
+
+
                     </div>
                 </div>
+                <div className="px-10 mb-10 -mt-10">
+                    <Links isDark={true} />
+                </div>
+                <LightSwitch ></LightSwitch>
             </div>
         </>
     );

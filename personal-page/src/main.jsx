@@ -6,6 +6,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 import About from './AboutMe/About.jsx'
 import Homepage from './Homepage.jsx'
+import ProjectDirectory from './Projects/ProjectDirectory.jsx';
+import BlazyBot from './Projects/BlazyBot.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,6 +16,8 @@ createRoot(document.getElementById('root')).render(
 
         <Route path="/" element={<Homepage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<ProjectDirectory />} />
+        <Route path="/projects/blazy-bot" element={<BlazyBot />} />
       </Routes>
 
     </Router>
