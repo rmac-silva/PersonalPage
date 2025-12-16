@@ -61,7 +61,7 @@ export default function Links({ isDark }) {
       <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
         LinkedIn{'   '}
         <a
-          href="https://www.linkedin.com/in/rmac-silva/"
+          href="https://www.linkedin.com/in/ricardo-silva-a1479739a/"
           style={linkStyle('linkedin')}
           onMouseEnter={() => setHoveredLink('linkedin')}
           onMouseLeave={() => setHoveredLink(null)}
