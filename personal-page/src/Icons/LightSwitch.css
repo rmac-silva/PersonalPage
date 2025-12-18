@@ -16,12 +16,44 @@
     padding-top: 10px;
     transform-origin: top;
 }
+.cord-broken {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 9.5px;
+    padding-top: 10px;
+    transform-origin: top;
+}
 
 .cord-dot {
     width: 4px;
     height: 4px;
     background: #444;
     border-radius: 50%;
+}
+.replacement-knob {
+    animation: appearKnob 0.5s ease-out forwards;
+    width: 32px;
+    height: 32px;
+    background: transparent;
+    border: 2px solid #555;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 8px auto 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes appearKnob {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 .knob {
@@ -44,14 +76,68 @@
     animation: pull 0.4s ease-in-out;
 }
 
+.switch.breaking .cord {
+    animation: stretchCordBreak 0.4s ease-in-out;
+}
+
+.switch.breaking .knob {
+    animation: pullAndBreak 0.8s ease-in-out forwards;
+}
+
 @keyframes stretchCord {
     0%   { gap: 8px; }
     50%  { gap: 9.5px; }
     100% { gap: 8px; }
+}
+@keyframes stretchCordBreak {
+    0%   { gap: 8px; }
+    50%  { gap: 9.5px; }
+    100% { gap: 9.5px; }
 }
 
 @keyframes pull {
     0%   { transform: translateY(0); }
     50%  { transform: translateY(14px); }
     100% { transform: translateY(0); }
+}
+
+@keyframes pullAndBreak {
+    0%   { transform: translateY(0) rotate(0deg); }
+    50%  { transform: translateY(14px) rotate(0deg); }
+    51%  { transform: translateY(15px) rotate(0deg); }
+    100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+.knob.falling {
+    animation: fallDown 1.5s ease-in forwards;
+}
+
+@keyframes fallDown {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.switch.flying-away .cord {
+    animation: flyUp 1s ease-in forwards;
+}
+
+.switch.flying-away .replacement-knob {
+    animation: flyUp 1s ease-in forwards;
+}
+
+@keyframes flyUp {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
 }

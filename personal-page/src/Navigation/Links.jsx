@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
-export default function Links({ isDark }) {
+export default function Links({ isDark, isUnlit }) {
   const lightMode = {
     background: '#ffffff',
     textDefault: '#000000',
@@ -12,6 +12,17 @@ export default function Links({ isDark }) {
     svgPath3: '#eeb58f',
     svgPath4: '#f8ceb6',
   };
+
+  const unlitMode = {
+        background: '#2b2b2b',
+        textDefault: '#0c0c0c',
+        textHover: '#e2914e',
+        paperBg: 'transparent',
+        svgPath1: '#6b3fa0',
+        svgPath2: '#8b5fbf',
+        svgPath3: '#9d6b2f',
+        svgPath4: '#b8895f',
+    }
 
   const darkMode = {
     background: '#1a1a1a',
@@ -24,7 +35,7 @@ export default function Links({ isDark }) {
     svgPath4: '#b8895f',
   };
 
-  const colors = isDark ? darkMode : lightMode;
+  const colors = isDark ? darkMode : isUnlit ? unlitMode : lightMode;
   const [hoveredLink, setHoveredLink] = useState(null);
 
   const linkStyle = (linkId) => ({

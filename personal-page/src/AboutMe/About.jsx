@@ -258,7 +258,7 @@ export default function About() {
 
                             <div className="text-2xl leading-8" style={{ color: colors.textSecondary }}>
                                 <p className="mb-3">
-                                    Hi! My name is Ricardo Silva and I'm a software engineer with a Master's Degree in Computer Science from NOVA FCT in Portugal, currently looking for employment.
+                                    Hi! My name is Ricardo Silva and I'm a software engineer with a Master's Degree in Computer Science from NOVA FCT in Portugal, currently looking for employment (<i>clearly not as a designer</i>).
                                 </p>
 
                                 <p className="mb-3">
@@ -268,7 +268,7 @@ export default function About() {
                                 </p>
 
                                 <p className="mb-3">
-                                    I'm a big fan of video games, board games and tabletop RPGs, but I also like going outside the house (<i>sometimes a foreign concept for us software developers</i>). In the summer I like going on hikes, playing beach volleyball and swimming (be it in the pool, lake or sea!). During the colder months I like practicing indoor volleyball, table tennis, folding <HoverWord text="origami" onHover={startCycleFor} /> figurines and relaxing at home, either playing games or just hanging out with friends.
+                                    I'm a big fan of video games, board games and tabletop RPGs, but I also like going outside the house (<i>sometimes a foreign concept for us software developers</i>). In the summer I like playing beach volleyball and swimming (be it in the pool, lake or sea!). During the colder months I like practicing indoor volleyball, table tennis, folding <HoverWord text="origami" onHover={startCycleFor} /> figurines and overall just staying at home, either playing games or just hanging out with friends.
                                 </p>
                             </div>
                         </Paper>

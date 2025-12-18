@@ -5,7 +5,7 @@ import './index.css'
 import { BrowserRouter as Router } from 'react-router-dom';
 
 import About from './AboutMe/About.jsx'
-import Homepage from './Homepage.jsx'
+import Homepage from './Homepage/Homepage.jsx'
 import ProjectDirectory from './Projects/ProjectDirectory.jsx';
 import BlazyBot from './Projects/BlazyBot.jsx'
 
