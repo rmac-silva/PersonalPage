@@ -47,12 +47,7 @@ export default function LightSwitch({breakCallback, oldCallback, canBreak=false}
         console.log('Old mode toggled!');
         setPulling(true);
 
-        if (audioRef.current) {
-            audioRef.current.currentTime = 0; // Reset to start in case it's still playing
-            audioRef.current.play().catch(err => {
-                console.log('Audio play failed:', err);
-            });
-        }
+        
 
         
         // Dummy function - add your logic here if needed

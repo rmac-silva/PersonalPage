@@ -15,7 +15,7 @@ import HomeIcon from "@mui/icons-material/Home";
  *  <Breadcrum segments={['about', 'team']} />  // custom segments
  */
 
-export default function Breadcrum({ segments: propSegments }) {
+export default function Breadcrum({ segments: propSegments}) {
   const pathname =
     typeof window !== "undefined" && !propSegments ? window.location.pathname : "/";
   const segments =
@@ -55,7 +55,8 @@ export default function Breadcrum({ segments: propSegments }) {
         aria-label="breadcrumb"
         separator="›"
         sx={{
-          ".MuiBreadcrumbs-ol": { alignItems: "center" },
+          ".MuiBreadcrumbs-ol": { alignItems: "baseline" },
+          paddingTop: 0.5,
         }}
       >
         <Link
@@ -65,16 +66,15 @@ export default function Breadcrum({ segments: propSegments }) {
           sx={{
             display: "inline-flex",
             alignItems: "center",
-            gap: 0.5,
             fontSize: "0.95rem",
+            lineHeight: 0,
           }}
         >
-          
           Home
         </Link>
 
         {segments.length === 0 ? (
-          <Typography color="text.primary" sx={{ fontSize: "0.95rem" }}>
+          <Typography color="text.primary" sx={{ fontSize: "0.95rem", display: "inline-flex", alignItems: "center", lineHeight: 0 }}>
             Home
           </Typography>
         ) : (
@@ -86,7 +86,7 @@ export default function Breadcrum({ segments: propSegments }) {
               <Typography
                 key={i}
                 color="text.primary"
-                sx={{ fontSize: "0.95rem", textTransform: "capitalize" }}
+                sx={{ fontSize: "0.95rem", textTransform: "capitalize", display: "inline-flex", alignItems: "center", lineHeight: 0 }}
               >
                 {label}
               </Typography>
@@ -99,6 +99,9 @@ export default function Breadcrum({ segments: propSegments }) {
                 sx={{
                   fontSize: "0.95rem",
                   textTransform: "capitalize",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  lineHeight: 1,
                 }}
               >
                 {label}

@@ -5,10 +5,12 @@ import LightSwitch from "../Icons/LightSwitch";
 import Links from "../Navigation/Links";
 import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 import CloseIcon from '@mui/icons-material/Close';
-
+import './ProjectTemplate.css';
 export default function ProjectTemplate({ projectData }) {
     const [isDark, setIsDark] = useState(false);
     const [lightboxImage, setLightboxImage] = useState(null);
+
+    
 
     // Listen for theme changes
     useEffect(() => {
