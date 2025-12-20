@@ -245,11 +245,130 @@ export default function BlazyBot() {
                                 </code>
                             </p>
                         </p>
+                        <p>
+                            So, with this system and the "The One Ring" item, we can simply create a monster ocurrence like this:
+                            <p className='mt-2 mb-2 bg-neutral-800 p-2 rounded-md'>
+                                <code>
+                                    Nazgûl | 999 ; HAS The One Ring EQUIPPED
+                                </code>
+                            </p>
+                            Meaning that the Nazgûl will always appear if the player has The One Ring equipped. Allowing us to create special encounters and events based on the player's current status effects, items equipped, etc...
+                        </p>
 
                     </>
                 ),
                 images: [
 
+                ]
+            },
+            {
+                title: "Interactive Events",
+                content: (
+                    <>
+                        <p>
+                            Delves were getting a bit repetitive, all you had to do was click attack, and the fight would just sort itself out. I started 
+                            wondering why I didn't make it an idle game in the first place. So to spice things up a bit (<i>and to add more story telling and world building</i>) 
+                            I created a system where users can encounter certain events, making choices on how to resolve them.
+                        </p>
+                        <p>
+                            These events are defined in each of the zones, and can be affected by the conditions I explained above. 
+                            Whenever the player encounters an event they are presented with an overall description of what they see or hear.
+                            Then they are given a set of choices, each with their own hidden outcomes and skill checks.
+                        </p>
+                        <p>
+                            <h1 className='text-3xl font-semibold pb-2'>Picking a choice</h1>
+                            Each choice will have pre-defined skill checks either based on LUCK, which is just a random roll. Or based 
+                            on the character's stats (STR, DEX, INT, CON). 
+                            Each check has a difficulty, and if the player meets or exceeds that difficulty, they will have a 95% chance of getting 
+                            the positive outcome, otherwise they will have a chance on succeeding based on how far away they are from the target value.
+                        </p>
+                        <p>
+                            <h1 className='text-3xl font-semibold pb-2'>Example</h1>
+                            <p className='mt-2 mb-2 bg-neutral-800 p-2 rounded-md'>
+                                <code>
+                                    "You spot an unconscious adventurer in the middle of the path..."
+                                    <br></br>Choice 1: "Wake him up" ; LUCK ; 40
+                                    <br></br>Choice 2: "Rob the Adventurer" ; DEX ; 10
+                                    <br></br>Choice 3: "Ignore the drunk adventurer" ; LUCK ; 0
+                                </code>
+                            </p>
+                            So, choice 1 requires a luck check with a difficulty of 40, meaning the player has 60% chance of passing the check.
+                            Choice 2 requires a dexterity check with a difficulty of 10, meaning that if the player's DEX is 10 or higher they have a 95% chance of passing the check (<i>capped at 95% always, and at a minimum of 5%</i>).
+                            If the player had 5 dexterity, they would still have a 50% chance of passing the check.
+                            Finally choice 3 has a luck check with a difficulty of 0, meaning the player will always pass this check. The opposite can happen if there's a luck check with 
+                            101 difficulty, which the player can never pass (<i>these are just tools to enforce automatic fails and successes</i>)
+                        </p>
+                        <p>
+                            Additionally a choice can have multiple checks, in which case the system will automatically pick the one the player has 
+                            the best chance at passing. Meaning if you have a DEX ; 15 and a STR ; 5 requirement, and have 10 STR but no dexterity, the system will roll the STR roll.
+                        </p>
+                        <p>
+                            <h1 className='text-3xl font-semibold pb-2'>Outcomes</h1>
+                            So you picked a choice, and passed or failed the check. What now?
+                            Each choice has two possible outcomes, one for success and one for failure. Each outcome can 
+                            have multiple consequences, from giving items and XP, applying status effects (<i>beneficial or harmful</i>) or
+                            chaining into another event (<i>for example if you woke up the adventurer, you could lead into an event where you talk to him</i>).
+                            In the future I also plan to add chaining into an encounter, as that has been a highly requested feature (<i>by my friend of course</i>).
+                        </p>
+                        <p>
+                            And there you have it, a flexible system where you can create as many options as you'd like, add multiple checks per choice, and define complex outcomes for each choice, chaining infinite events and providing complex rewards for distinct scenarios.
+                        </p>
+
+                    </>
+                ),
+                images: [
+
+                ]
+            },
+            {
+                title: "Event Creation",
+                content: (
+                    <>
+                        <p>
+                            As you can imagine, due to the complexity of the events (multiple checks, multiple outcomes, chaining stuff together), the JSON files 
+                            that represent each one get quite large and complex really quickly. 
+                            To help with this I created a small web app using NiceGUI in python, allowing people to create events through 
+                            a graphical interface.
+                        </p>
+                        <p>
+                            This app allows you to define the event's description, add choices, add checks to each choice, and add outcomes to each choice, providing field validation (preventing errors)
+                            and a more user friendly interface to create these complex events.
+                            I implemented this feature but it is still a work in progress, as it doesn't currently support editing existing events, and the whole
+                            system and page still needs work.
+                            Eventually I will remake it in React, hosting a proper webapp for facilitating creating new content.
+                        </p>
+                        <p>
+                            This existing webapp also allows for creating items and monsters, 
+                        </p>
+                    </>
+                ),
+                images: [
+
+                ]
+            },
+            {
+                title: "Levelling Up",
+                content: (
+                    <>
+                        <p className='mb-2'>
+                            An essential part to any RPG, gaining levels and increasing your character's stats.
+                            In this case it's a straightforward discord embed (<i>a panel</i>) that allows the user to invest points
+                            into their four main stats: Strength, Dexterity, Intelligence and Constitution.
+                        </p>
+                        <p className='mb-2'>
+                            Upon each level gained the user can spend a point, increasing one of their stats by one. The player is also (<i>for now</i>)
+                            free to respec their points at any time for free, promoting experimentation with different builds and playstyles.
+                        </p>
+                        <p>
+                            If you were respeccing from a high level (for example 40 or 50), investing every single point at a time would take ages.
+                            To speed this up I added a couple more buttons for +5 and +10 points at a time, just a simple change that increased the usability a lot.
+                        </p>
+                        
+
+                    </>
+                ),
+                images: [
+                    "/projects/blazy-bot/SmithyPanel.png",
                 ]
             },
             {

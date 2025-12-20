@@ -8,6 +8,7 @@ import About from './AboutMe/About.jsx'
 import Homepage from './Homepage/Homepage.jsx'
 import ProjectDirectory from './Projects/ProjectDirectory.jsx';
 import BlazyBot from './Projects/BlazyBot.jsx'
+import DnDYonder from './Projects/DndYonder.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<ProjectDirectory />} />
         <Route path="/projects/blazy-bot" element={<BlazyBot />} />
+        <Route path="/projects/dnd-yonder" element={<DnDYonder />} />
       </Routes>
 
     </Router>

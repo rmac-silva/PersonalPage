@@ -8,10 +8,28 @@ const projects = [
         id: 'blazy-bot',
         title: 'Blazy Bot',
         subtitle: 'A Complete RPG Inside Discord',
-        description: 'A Discord bot featuring a complete RPG system with combat, inventory, item effects, and weapon upgrading.',
+        description: 'A Discord bot featuring a complete RPG system with turn-based combat, inventory, monsters, interactive events, weapon upgrading and many more features.',
         tags: ['Discord Bot', 'Python', 'RPG', 'Game Development'],
         image: '/projects/blazy-bot/FinishedFightPanel.png', // Project thumbnail
         link: '/projects/blazy-bot',
+    },
+    {
+        id: 'dnd-yonder',
+        title: 'DND Yonder',
+        subtitle: 'A D&D 5e Sheet Management Tool',
+        description: 'A "community" driven D&D 5e character sheet management web application. Allowing users to contribute to the database of items, spells, classes etc... so they can later use that information in their own sheets. The main goal is to contribute passively, by filling in information when it\'s missing.',
+        tags: ['WebApp', 'React', 'FastAPI (Py)', 'D&D', 'Regex', 'Web Scraping'],
+        image: '/projects/dnd-yonder/DnDYonderHome.png', // Project thumbnail
+        link: '/projects/dnd-yonder',
+    },
+    {
+        id: 'thesis-project',
+        title: 'Thesis Project',
+        subtitle: 'My thesis project, involving a conversational agent helping you modify the game parameters through dialog and conversation.',
+        description: 'This was the project associated with my thesis dissertation. It involved a Unity game where users had to dodge sawblades. Within the game, a conversational agent (AI) would help users modify game parameters through dialog and conversation, making the game more difficult or easier. This project involved three main components: the Unity game, the conversational agent and a research interface to monitor and control the conversational agent\'s actions and behaviors.',
+        tags: ['WebApp', 'React', 'FastAPI (Py)', 'D&D', 'Regex', 'Web Scraping'],
+        image: '/projects/dnd-yonder/DnDYonderHome.png', // Project thumbnail
+        link: '/projects/dnd-yonder',
     },
     // Add more projects here as they are created
 ];
@@ -38,13 +56,13 @@ const ProjectDirectory = () => {
         background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
         cardBg: 'rgba(30, 30, 46, 0.85)',
         textPrimary: '#ffffff',
-        textSecondary: '#b0b0b0',
+        textSecondary: '#ebebeb',
         cardHoverBg: 'rgba(40, 40, 56, 0.95)',
     } : {
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
         cardBg: 'rgba(255, 255, 255, 0.85)',
-        textPrimary: '#1a1a1a',
-        textSecondary: '#4a4a4a',
+        textPrimary: '#0c0c0c',
+        textSecondary: '#242424',
         cardHoverBg: 'rgba(255, 255, 255, 0.95)',
     };
 
@@ -71,11 +89,11 @@ const ProjectDirectory = () => {
                     textAlign: 'center',
                     textShadow: isDark ? '2px 2px 8px rgba(0,0,0,0.5)' : '2px 2px 8px rgba(0,0,0,0.2)',
                 }}>
-                    Projects
+                    Past & Ongoing Projects
                 </h1>
                 
-                <p style={{
-                    fontSize: '1.2rem',
+                <p className='font-semibold!' style={{
+                    fontSize: '1.8rem',
                     color: colors.textSecondary,
                     textAlign: 'center',
                     marginBottom: '3rem',
