@@ -7,7 +7,7 @@ export default function DnDYonder() {
         title: "DND Yonder",
         subtitle: "A D&D 5e Sheet Management Tool",
         tags: ["Web Application", "React", "FastAPI", "D&D", "Character Sheet"],
-        githubUrl: "https://github.com/rmac-silva/dnd-yonder",
+        githubUrl: "https://github.com/rmac-silva/DnDYonder",
         liveUrl: "https://dndyonder.blazy.uk", // Optional
 
         // Add custom styles for <p> elements

@@ -138,7 +138,7 @@ export default function ProjectTemplate({ projectData }) {
                                             rel="noopener noreferrer"
                                             className="flex items-center gap-2 px-4 py-2 rounded-lg font-semibold transition-all hover:-translate-y-1"
                                             style={{ 
-                                                backgroundColor: isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
+                                                backgroundColor: isDark ? 'rgba(238, 77, 29, 0.712)' : 'rgba(241, 150, 107, 0.795)',
                                                 color: colors.textPrimary
                                             }}
                                         >

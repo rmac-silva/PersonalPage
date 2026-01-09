@@ -26,10 +26,28 @@ const projects = [
         id: 'thesis-project',
         title: 'Thesis Project',
         subtitle: 'My thesis project, involving a conversational agent helping you modify the game parameters through dialog and conversation.',
-        description: 'This was the project associated with my thesis dissertation. It involved a Unity game where users had to dodge sawblades. Within the game, a conversational agent (AI) would help users modify game parameters through dialog and conversation, making the game more difficult or easier. This project involved three main components: the Unity game, the conversational agent and a research interface to monitor and control the conversational agent\'s actions and behaviors.',
-        tags: ['WebApp', 'React', 'FastAPI (Py)', 'D&D', 'Regex', 'Web Scraping'],
-        image: '/projects/dnd-yonder/DnDYonderHome.png', // Project thumbnail
-        link: '/projects/dnd-yonder',
+        description: 'This was the project associated with my thesis dissertation. It involved a Unity game where users had to dodge sawblades. Within the game, a conversational agent (LLM) would help users modify game parameters through dialog and conversation, making the game more difficult or easier. This project involved three main components: the Unity game, the conversational agent and a research interface to monitor and control the conversational agent\'s actions and behaviors.',
+        tags: ['Unity', 'C#', 'Python', 'NiceGUI', 'Conversational AI', 'Multi-Modal'],
+        image: '/projects/thesis/ThesisHome.png', // Project thumbnail
+        link: '/projects/thesis',
+    },
+    {
+        id: 'wow-body-tracker',
+        title: 'WoW Body Tracker',
+        subtitle: 'A python application that uses computer vision to track your body movements, allowing you to play World of Warcraft using your body as a controller.',
+        description: 'This was just a small side-project I made to experiment with computer vision, inspired heavily by The Link, a released application on Steam.',
+        tags: ['Python', 'Computer Vision', 'Mediapipe', 'World of Warcraft'],
+        image: '/projects/wow-tracking/WowIcon.png', // Project thumbnail
+        link: '/projects/wow-body-tracker',
+    },
+    {
+        id: 'excel-wrapper',
+        title: 'Python GoogleSheets Wrapper',
+        subtitle: 'A python wrapper for Google Sheets API',
+        description: 'This wrapper simplifies interactions with Google Sheets API, allowing users (mostly me) to easily read, write, and manipulate spreadsheet data using Python.',
+        tags: ['Python', 'Google Sheets', 'API', 'Wrapper'],
+        image: '/projects/google-sheets-wrapper/Google-sheets.png', // Project thumbnail
+        link: '/projects/google-sheets-wrapper',
     },
     // Add more projects here as they are created
 ];
