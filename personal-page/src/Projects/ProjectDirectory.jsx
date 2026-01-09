@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardMedia, Chip, Box } from '@mui/material';
 import Breadcrum from '../Navigation/Breadcrum';
 import LightSwitch from '../Icons/LightSwitch';
+import Links from '../Navigation/Links';
 
 const projects = [
     {
@@ -206,7 +207,10 @@ const ProjectDirectory = () => {
                     ))}
                 </Box>
             </div>
+            <div className='p-4 mx-4'>
 
+            <Links isDark={true}/>
+            </div>
             <LightSwitch />
         </div>
     );

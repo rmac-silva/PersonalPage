@@ -110,6 +110,19 @@ export default function Links({ isDark, isUnlit }) {
         </a>
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
+      <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
+        Email{'   '}
+        <a
+          href="mailto:rmac.silva@campus.fct.unl.pt"
+          style={linkStyle('email')}
+          onMouseEnter={() => setHoveredLink('email')}
+          onMouseLeave={() => setHoveredLink(null)}
+          aria-label="Contact me on Discord"
+        >
+          rmac-silva
+        </a>
+        <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
+      </div>
     </div>
   );
 }
