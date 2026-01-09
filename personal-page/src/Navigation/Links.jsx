@@ -84,15 +84,15 @@ export default function Links({ isDark, isUnlit }) {
       </div>
 
       <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        Leave a tip{'   '}
+        Email{'   '}
         <a
-          href="https://ko-fi.com/rmacsilva"
-          style={linkStyle('kofi')}
-          onMouseEnter={() => setHoveredLink('kofi')}
+          href="mailto:rmac.silva@campus.fct.unl.pt"
+          style={linkStyle('email')}
+          onMouseEnter={() => setHoveredLink('email')}
           onMouseLeave={() => setHoveredLink(null)}
-          aria-label="Go to my Ko-fi page"
+          aria-label="Contact me on Discord"
         >
-          ko-fi/rmac-silva
+          rmac-silva
         </a>
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
@@ -110,19 +110,23 @@ export default function Links({ isDark, isUnlit }) {
         </a>
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
+
       <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        Email{'   '}
+        Leave a tip{'   '}
         <a
-          href="mailto:rmac.silva@campus.fct.unl.pt"
-          style={linkStyle('email')}
-          onMouseEnter={() => setHoveredLink('email')}
+          href="https://ko-fi.com/rmacsilva"
+          style={linkStyle('kofi')}
+          onMouseEnter={() => setHoveredLink('kofi')}
           onMouseLeave={() => setHoveredLink(null)}
-          aria-label="Contact me on Discord"
+          aria-label="Go to my Ko-fi page"
         >
-          rmac-silva
+          ko-fi/rmac-silva
         </a>
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
+
+      
+      
     </div>
   );
 }
