@@ -24,6 +24,15 @@ const projects = [
         link: '/projects/dnd-yonder',
     },
     {
+        id: 'roguelike202-jam',
+        title: 'Roguelike202 - Itch.io/Minijam202',
+        subtitle: 'My submission to the Itch.io Minijam 202 for January 2026.',
+        description: 'The theme was Power-up with the limitation being \'Extremely Overpowered\'. As such I developed a small roguelike RPG focused on breaking the game and getting the player stats as high as possible through flat and multiplicative stat buffs and items.',
+        tags: ["Unity", "C#", "Roguelike", "Game Jam"],
+        image: '/projects/roguelike202-jam/Roguelike202Home.png', // Project thumbnail
+        link: '/projects/roguelike202',
+    },
+    {
         id: 'thesis-project',
         title: 'Thesis Project',
         subtitle: 'My thesis project, involving a conversational agent helping you modify the game parameters through dialog and conversation.',
