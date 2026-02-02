@@ -33,9 +33,9 @@ export default function SheetsWrapper() {
 
         technologies: [
             "Python",
-            "Computer Vision",
-            "Mediapipe",
-            "World of Warcraft",
+            "Google Sheets API",
+            "OAuth2",
+            "API Wrappers",
         ],
 
         // Optional: additional custom links

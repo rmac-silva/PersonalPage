@@ -33,6 +33,24 @@ const projects = [
         link: '/projects/roguelike202',
     },
     {
+        id: 'farming-mech-game',
+        title: 'Far-Mech',
+        subtitle: 'My Unity "god" project, where I experiment and learn new things.',
+        description: 'This game serves as an overall learning platform for me to experiment with Unity. It is also that dream project that will most likely never see the light of day due to scope creep. The game is a hybrid between having your cozy farm with piloting a giant mech to help with chores or defend against creatures.',
+        tags: ["Unity", "C#", "Learning", "Farming", "Mechs"],
+        image: '/projects/far-mech/far-mech-home.png', // Project thumbnail
+        link: '/projects/farming-mech-game',
+    },
+    {
+        id: 'portfolio-builders-1',
+        title: 'Village Alchemist',
+        subtitle: 'My currently work in progress submission to the Itch.io Portfolio Jam.',
+        description: 'The theme for the weekly jam was secret ingredient, and the idea surged of having a game where you can brew potions with diverse effects, helping townsfolk with their problems. The game is a 2D pixel art game set in your alchemist shop. NPCs approach you and you give them potions, sounds simple right? Well, your potions can have diverse effects, help with the problem or make it worse! These outcomes are tracked and impact your personal relationship with the NPC and your overall reputation in town.',
+        tags: ["Godot", "GDScript", "Cozy", "Story Driven","Game Jam"],
+        image: '/projects/village-alchemist/VillageAlchemistHome.png', // Project thumbnail
+        link: '/projects/village-alchemist',
+    },
+    {
         id: 'thesis-project',
         title: 'Thesis Project',
         subtitle: 'My thesis project, involving a conversational agent helping you modify the game parameters through dialog and conversation.',

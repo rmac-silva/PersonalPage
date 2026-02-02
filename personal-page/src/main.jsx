@@ -13,6 +13,8 @@ import ThesisProject from './Projects/Thesis.jsx';
 import WowBodyTracker from './Projects/WowTracker.jsx';
 import SheetsWrapper from './Projects/GoogleSheets.jsx';
 import Roguelike202 from './Projects/Roguelike202.jsx';
+import VillageAlchemist from './Projects/VillageAlchemist.jsx';
+import FarMech from './Projects/FarMech.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -28,6 +30,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/projects/thesis" element={<ThesisProject />} />
         <Route path="/projects/wow-body-tracker" element={<WowBodyTracker />} />
         <Route path="/projects/google-sheets-wrapper" element={<> <SheetsWrapper /> </>} />
+        <Route path="/projects/village-alchemist" element={<VillageAlchemist />} />
+        <Route path="/projects/farming-mech-game" element={<FarMech />} />
       </Routes>
 
     </Router>

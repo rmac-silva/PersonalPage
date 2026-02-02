@@ -7,7 +7,7 @@ export default function Roguelike202() {
         title: "Roguelike202 - Itch.io/Minijam202",
         subtitle: "My submission to the Itch.io Minijam 202 for January 2026. The theme was Power-up with the limitation being 'Extremely Overpowered'. As such I developed a small roguelike RPG focused on breaking the game and getting the player stats as high as possible through flat and multiplicative stat buffs and items.",
         tags: ["Unity", "C#", "Roguelike", "Game Jam"],
-        githubUrl: "",
+        githubUrl: "https://github.com/rmac-silva/MiniJam-206",
         liveUrl: "https://gilbio.itch.io/roguelike202",
 
         // Add custom styles for <p> elements
