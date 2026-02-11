@@ -252,7 +252,7 @@ export default function About() {
 
                 {/* Page content (keeps original structure) */}
                 <div className="min-h-screen w-screen bg-center bg-cover flex items-start justify-center" style={{ backgroundImage: "url('/images/about-bg.jpg')" }}>
-                    <div className="p-10 rounded-lg !w-[80%] mt-10 mx-4">
+                    <div className="p-4 md:p-10 rounded-lg w-[95%] md:!w-[80%] mt-10 mx-auto">
                         <Paper elevation={3} className="p-8 rounded-lg" style={{ backgroundColor: colors.paperBg }}>
                             <h1 className="!text-4xl !md:text-4xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>About Me</h1>
 

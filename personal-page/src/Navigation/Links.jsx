@@ -54,14 +54,16 @@ export default function Links({ isDark, isUnlit }) {
   };
 
   return (
-    <div className="flex flex-row flex-wrap mt-15 text-4xl space-x-20" style={{ color: colors.textDefault }}>
-      <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        Github{'   '}
+    <div className="flex flex-row flex-wrap mt-15 text-xl md:text-3xl lg:text-4xl space-x-10 md:space-x-20 gap-y-4" style={{ color: colors.textDefault }}>
+      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
+        <span className="mr-2">Github</span>
         <a
           href="https://github.com/rmac-silva/"
           style={linkStyle('github')}
           onMouseEnter={() => setHoveredLink('github')}
           onMouseLeave={() => setHoveredLink(null)}
+          onTouchStart={() => setHoveredLink('github')}
+          onTouchEnd={() => setHoveredLink(null)}
           aria-label="Go to my github page"
         >
           rmac-silva
@@ -69,13 +71,15 @@ export default function Links({ isDark, isUnlit }) {
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
 
-      <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        LinkedIn{'   '}
+      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
+        <span className="mr-2">LinkedIn</span>
         <a
           href="https://www.linkedin.com/in/ricardo-silva-a1479739a/"
           style={linkStyle('linkedin')}
           onMouseEnter={() => setHoveredLink('linkedin')}
           onMouseLeave={() => setHoveredLink(null)}
+          onTouchStart={() => setHoveredLink('linkedin')}
+          onTouchEnd={() => setHoveredLink(null)}
           aria-label="Go to my linkedin page"
         >
           @rmac-silva
@@ -83,13 +87,15 @@ export default function Links({ isDark, isUnlit }) {
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
 
-      <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        Email{'   '}
+      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
+        <span className="mr-2">Email</span>
         <a
           href="mailto:rmac.silva@campus.fct.unl.pt"
           style={linkStyle('email')}
           onMouseEnter={() => setHoveredLink('email')}
           onMouseLeave={() => setHoveredLink(null)}
+          onTouchStart={() => setHoveredLink('email')}
+          onTouchEnd={() => setHoveredLink(null)}
           aria-label="Contact me on Discord"
         >
           rmac-silva
@@ -97,13 +103,15 @@ export default function Links({ isDark, isUnlit }) {
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
 
-      <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        Discord{'   '}
+      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
+        <span className="mr-2">Discord</span>
         <a
           href="https://discord.com/users/249619725682868224"
           style={linkStyle('discord')}
           onMouseEnter={() => setHoveredLink('discord')}
           onMouseLeave={() => setHoveredLink(null)}
+          onTouchStart={() => setHoveredLink('discord')}
+          onTouchEnd={() => setHoveredLink(null)}
           aria-label="Contact me on Discord"
         >
           @gilbio
@@ -111,13 +119,15 @@ export default function Links({ isDark, isUnlit }) {
         <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
       </div>
 
-      <div className="flex flex-row leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        Leave a tip{'   '}
+      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
+        <span className="mr-2 text-nowrap">Leave a tip</span>
         <a
           href="https://ko-fi.com/rmacsilva"
           style={linkStyle('kofi')}
           onMouseEnter={() => setHoveredLink('kofi')}
           onMouseLeave={() => setHoveredLink(null)}
+          onTouchStart={() => setHoveredLink('kofi')}
+          onTouchEnd={() => setHoveredLink(null)}
           aria-label="Go to my Ko-fi page"
         >
           ko-fi/rmac-silva

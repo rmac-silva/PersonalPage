@@ -102,6 +102,7 @@ export default function Homepage() {
         fontWeight: 700,
         display: 'inline-block',
         textDecorationThickness: '0px',
+        fontSize: '110%',
         color: hoveredLink === linkId ? colors.textHover : colors.textDefault,
         transform: hoveredLink === linkId ? 'translateY(-4px)' : 'translateY(0)',
         transition: 'all 0.2s ease',
@@ -139,12 +140,12 @@ export default function Homepage() {
         <>
             {!oldMode && (
                 <div 
-                    className="relative h-screen overflow-hidden font-sans overscroll-none"
+                    className="relative min-h-screen w-full overflow-x-hidden font-sans overscroll-none"
                     style={{ backgroundColor: colors.background }}
                 >
                     {/* Animated SVG background placed behind content */}
-                    <div className='transition-all duration-500 ease-in-out overflow-hidden absolute top-0 left-0 w-full h-full'>
-                        <svg preserveAspectRatio="xMidYMid slice" className='absolute z-0 h-auto' viewBox="10 10 80 80">
+                    <div className='transition-all fixed duration-500 ease-in-out overflow-hidden top-0 left-0 w-full h-full'>
+                        <svg preserveAspectRatio="xMidYMid slice" className='absolute z-0 w-full h-full' viewBox="10 10 80 80">
                             <defs>
                                 <style type="text/css" >
                                     {css}
@@ -160,17 +161,19 @@ export default function Homepage() {
                     {/* Content container */}
                     <div className="relative z-10 w-full h-full">
                         <main className="w-full px-6 md:px-12 lg:px-24 py-20 flex flex-col items-start min-h-screen">
-                            <h6 className="leading-relaxed mb-6 text-6xl transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
+                            <h6 className="leading-relaxed mb-6 text-3xl md:text-5xl lg:text-6xl transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
                                 Hi there!
                             </h6>
 
-                            <h6 className="text-6xl leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
+                            <h6 className="text-3xl md:text-5xl lg:text-6xl leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
                                 I'm{' '}
                                 <a
                                     href="/about"
                                     style={linkStyle('about')}
                                     onMouseEnter={() => setHoveredLink('about')}
                                     onMouseLeave={() => setHoveredLink(null)}
+                                    onTouchStart={() => setHoveredLink('about')}
+                                    onTouchEnd={() => setHoveredLink(null)}
                                     aria-label="Go to about page"
                                 >
                                     Ricardo
@@ -181,6 +184,8 @@ export default function Homepage() {
                                     style={linkStyle('projects')}
                                     onMouseEnter={() => setHoveredLink('projects')}
                                     onMouseLeave={() => setHoveredLink(null)}
+                                    onTouchStart={() => setHoveredLink('projects')}
+                                    onTouchEnd={() => setHoveredLink(null)}
                                     aria-label="Go to projects page"
                                 >
                                     past projects
@@ -191,6 +196,8 @@ export default function Homepage() {
                                     style={linkStyle('blazy')}
                                     onMouseEnter={() => setHoveredLink('blazy')}
                                     onMouseLeave={() => setHoveredLink(null)}
+                                    onTouchStart={() => setHoveredLink('blazy')}
+                                    onTouchEnd={() => setHoveredLink(null)}
                                     aria-label="Go to Blazy Bot project"
                                 >
                                     RPG inside Discord
@@ -204,7 +211,7 @@ export default function Homepage() {
                     {isUnlit && (
 
                     <div
-                        className="absolute inset-0 z-40 pointer-events-none"
+                        className="fixed inset-0 z-40 pointer-events-none"
                         style={{
                             background: `radial-gradient(circle ${spotlightRadius}px at ${mousePos.x}px ${mousePos.y}px, transparent 0%, rgba(0, 0, 0, 0.99) 100%)`,
                             transition: 'background 0.05s ease-out',
