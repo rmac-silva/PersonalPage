@@ -50,7 +50,7 @@ export default function ProjectTemplate({ projectData }) {
 
     // Theme colors
     const lightColors = {
-        paperBg: 'rgba(255, 255, 255, 0.8)',
+        paperBg: 'rgba(235, 235, 235, 0.9)',
         textPrimary: '#1a1a1a',
         textSecondary: '#333333',
         background: '#f5f5f5',
@@ -213,23 +213,72 @@ export default function ProjectTemplate({ projectData }) {
                                     {section.content}
                                 </div>
 
-                                {/* Section Images */}
-                                {section.images && section.images.length > 0 && (
-                                    <div className={`grid gap-4 mt-6 ${section.images.length === 1 ? 'grid-cols-1 max-w-md mx-auto' : 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'}`}>
-                                        {section.images.map((img, imgIndex) => (
-                                            <div 
-                                                key={imgIndex}
-                                                className="rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-105"
-                                                style={{ height: '250px' }}
-                                                onClick={() => setLightboxImage(img)}
-                                            >
-                                                <img 
-                                                    src={img} 
-                                                    alt={`${section.title || 'Section'} image ${imgIndex + 1}`}
-                                                    className="w-full h-full object-cover rounded-lg"
-                                                />
-                                            </div>
-                                        ))}
+                                {/* Section Media (Images and Videos) */}
+                                {((section.images && section.images.length > 0) || (section.videos && section.videos.length > 0)) && (
+                                    <div className="flex flex-wrap justify-center items-start gap-4 mt-6 w-full">
+                                        {/* Images */}
+                                        {section.images && section.images.map((img, imgIndex) => {
+                                            const imgUrl = typeof img === 'string' ? img : img.url;
+                                            const imgTitle = typeof img === 'string' ? null : img.title;
+                                            return (
+                                                <div 
+                                                    key={`img-${imgIndex}`}
+                                                    className="flex-grow shrink-0 basis-[300px] max-w-[450px] flex flex-col items-center"
+                                                >
+                                                    <div
+                                                        className="rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-105 w-full"
+                                                        style={{ height: '250px' }}
+                                                        onClick={() => setLightboxImage(imgUrl)}
+                                                    >
+                                                        <img 
+                                                            src={imgUrl} 
+                                                            alt={imgTitle || `${section.title || 'Section'} image ${imgIndex + 1}`}
+                                                            className="w-full h-full object-cover rounded-lg"
+                                                        />
+                                                    </div>
+                                                    {imgTitle && (
+                                                        <p className="mt-2 text-center text-sm font-semibold" style={{ color: colors.textSecondary }}>
+                                                            {imgTitle}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
+
+                                        {/* Videos */}
+                                        {section.videos && section.videos.map((video, vidIndex) => {
+                                            const videoUrl = typeof video === 'string' ? video : video.url;
+                                            const videoTitle = typeof video === 'string' ? null : video.title;
+                                            return (
+                                                <div 
+                                                    key={`vid-${vidIndex}`}
+                                                    className="flex-grow shrink-0 basis-[300px] max-w-[450px] flex flex-col items-center"
+                                                >
+                                                    <div 
+                                                        className="rounded-lg overflow-hidden w-full"
+                                                        style={{ 
+                                                            height: '250px',
+                                                            border: `1px solid ${isDark ? '#4a4a4a' : '#ffffff'}`
+                                                        }}
+                                                    >
+                                                        <video 
+                                                            src={videoUrl} 
+                                                            controls
+                                                            autoPlay
+                                                            loop
+                                                            muted
+                                                            playsInline
+                                                            className="w-full h-full object-cover rounded-lg"
+                                                        />
+                                                    </div>
+                                                    {videoTitle && (
+                                                        <p className="mt-2 text-center text-sm font-semibold" style={{ color: colors.textSecondary }}>
+                                                            {videoTitle}
+                                                        </p>
+                                                    )}
+                                                </div>
+                                            );
+                                        })}
                                     </div>
                                 )}
                             </Paper>

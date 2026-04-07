@@ -33,19 +33,19 @@ const projects = [
         link: '/projects/roguelike202',
     },
     {
-        id: 'farming-mech-game',
-        title: 'Far-Mech',
-        subtitle: 'My Unity "god" project, where I experiment and learn new things.',
-        description: 'This game serves as an overall learning platform for me to experiment with Unity. It is also that dream project that will most likely never see the light of day due to scope creep. The game is a hybrid between having your cozy farm with piloting a giant mech to help with chores or defend against creatures.',
-        tags: ["Unity", "C#", "Learning", "Farming", "Mechs"],
-        image: '/projects/far-mech/far-mech-home.png', // Project thumbnail
-        link: '/projects/farming-mech-game',
+        id: 'diggin-game',
+        title: 'Metal Detecting With Granny!',
+        subtitle: 'A gamejam submission that turned into a longer project than anticipated. Mostly due to the storms that hit Portugal during the early months of the year.',
+        description: "This project was originally a one week gamejam, where I collaborated with another teammate to develop a game for Brackey's game jam. The theme was strange places and as such we ended up setting up the player in a beach where strange items are hidden beneath the sands. To add to the 'strangeness' the player has to dance to dig said items up and escape off the island.",
+        tags: ["Unity", "C#", "Exploration", "GameJam"],
+        image: '/projects/brackeys/GameCover.png', // Project thumbnail
+        link: '/projects/brackeys-jam',
     },
     {
         id: 'portfolio-builders-1',
         title: 'Village Alchemist',
-        subtitle: 'My currently work in progress submission to the Itch.io Portfolio Jam.',
-        description: 'The theme for the weekly jam was secret ingredient, and the idea surged of having a game where you can brew potions with diverse effects, helping townsfolk with their problems. The game is a 2D pixel art game set in your alchemist shop. NPCs approach you and you give them potions, sounds simple right? Well, your potions can have diverse effects, help with the problem or make it worse! These outcomes are tracked and impact your personal relationship with the NPC and your overall reputation in town.',
+        subtitle: 'A gamejam submission that got delayed due to the storms in Portugal. Also my first game using the Godot game engine and GDScript.',
+        description: 'The theme for the weekly jam was secret ingredient, and the idea surged of having a game where you can brew potions with diverse effects, helping townsfolk with their problems. The game is a 2D pixel art game set in your alchemist shop. NPCs approach you and you give them potions. The game is mostly based around mixing potions that fit the problem of the NPC that shows up in your shop, where correctly brewed potions can have positive outcomes and if you get the potion wrong, even villagers may die.',
         tags: ["Godot", "GDScript", "Cozy", "Story Driven","Game Jam"],
         image: '/projects/village-alchemist/VillageAlchemistHome.png', // Project thumbnail
         link: '/projects/village-alchemist',
