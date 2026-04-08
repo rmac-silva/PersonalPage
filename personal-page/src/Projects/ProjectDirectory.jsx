@@ -20,7 +20,8 @@ const projects = [
         subtitle: 'A D&D 5e Sheet Management Tool',
         description: 'A "community" driven D&D 5e character sheet management web application. Allowing users to contribute to the database of items, spells, classes etc... so they can later use that information in their own sheets. The main goal is to contribute passively, by filling in information when it\'s missing.',
         tags: ['WebApp', 'React', 'FastAPI (Py)', 'D&D', 'Regex', 'Web Scraping'],
-        image: '/projects/dnd-yonder/DnDYonderHome.png', // Project thumbnail
+        image: '/projects/dnd-yonder/DnDYonderHome.png',
+        video: '/projects/dnd-yonder/Overview.mp4', 
         link: '/projects/dnd-yonder',
     },
     {
@@ -29,7 +30,8 @@ const projects = [
         subtitle: 'My submission to the Itch.io Minijam 202 for January 2026.',
         description: 'The theme was Power-up with the limitation being \'Extremely Overpowered\'. As such I developed a small roguelike RPG focused on breaking the game and getting the player stats as high as possible through flat and multiplicative stat buffs and items.',
         tags: ["Unity", "C#", "Roguelike", "Game Jam"],
-        image: '/projects/roguelike202-jam/Roguelike202Home.png', // Project thumbnail
+        image: '/projects/roguelike202-jam/Roguelike202Home.png',
+        video: '/projects/roguelike202-jam/Overview.mp4',
         link: '/projects/roguelike202',
     },
     {
@@ -38,8 +40,29 @@ const projects = [
         subtitle: 'A gamejam submission that turned into a longer project than anticipated. Mostly due to the storms that hit Portugal during the early months of the year.',
         description: "This project was originally a one week gamejam, where I collaborated with another teammate to develop a game for Brackey's game jam. The theme was strange places and as such we ended up setting up the player in a beach where strange items are hidden beneath the sands. To add to the 'strangeness' the player has to dance to dig said items up and escape off the island.",
         tags: ["Unity", "C#", "Exploration", "GameJam"],
-        image: '/projects/brackeys/GameCover.png', // Project thumbnail
+        image: '/projects/brackeys/GameCover.png',
+        video: '/projects/brackeys/GameOverview.mp4',
         link: '/projects/brackeys-jam',
+    },
+    {
+        id: 'sts2-mod',
+        title: 'Slay The Spire 2 - Relic Tracker Mod',
+        subtitle: 'A mod for the newly released Slay The Spire 2, that shows detailed stats on the relics you have collected.',
+        description: "This mod was developed for Slay The Spire 2, which was developed using Godot, specifically the C# version. For example if a relic deals 3 damage to all enemies, it can track overall damage dealt.",
+        tags: ["Godot", "C#", "Modding", "Harmony"],
+        image: '/projects/sts2mod/Overview.png',
+        video: '/projects/sts2mod/Overview.mp4',
+        link: '/projects/sts2mod',
+    },
+    {
+        id: 'thesis-project',
+        title: 'Thesis Project',
+        subtitle: 'My thesis project, involving a conversational agent helping you modify the game parameters through dialog and conversation.',
+        description: 'This was the project associated with my thesis dissertation. It involved a Unity game where users had to dodge sawblades. Within the game, a conversational agent (LLM) would help users modify game parameters through dialog and conversation, making the game more difficult or easier. This project involved three main components: the Unity game, the conversational agent and a research interface to monitor and control the conversational agent\'s actions and behaviors.',
+        tags: ['Unity', 'C#', 'Python', 'NiceGUI', 'Conversational AI', 'Multi-Modal'],
+        image: '/projects/thesis/ThesisHome.png',
+        video: '/projects/thesis/Overview.mp4',
+        link: '/projects/thesis',
     },
     {
         id: 'portfolio-builders-1',
@@ -49,15 +72,6 @@ const projects = [
         tags: ["Godot", "GDScript", "Cozy", "Story Driven","Game Jam"],
         image: '/projects/village-alchemist/VillageAlchemistHome.png', // Project thumbnail
         link: '/projects/village-alchemist',
-    },
-    {
-        id: 'thesis-project',
-        title: 'Thesis Project',
-        subtitle: 'My thesis project, involving a conversational agent helping you modify the game parameters through dialog and conversation.',
-        description: 'This was the project associated with my thesis dissertation. It involved a Unity game where users had to dodge sawblades. Within the game, a conversational agent (LLM) would help users modify game parameters through dialog and conversation, making the game more difficult or easier. This project involved three main components: the Unity game, the conversational agent and a research interface to monitor and control the conversational agent\'s actions and behaviors.',
-        tags: ['Unity', 'C#', 'Python', 'NiceGUI', 'Conversational AI', 'Multi-Modal'],
-        image: '/projects/thesis/ThesisHome.png', // Project thumbnail
-        link: '/projects/thesis',
     },
     {
         id: 'wow-body-tracker',
@@ -113,30 +127,30 @@ const ProjectDirectory = () => {
     };
 
     return (
-        <div style={{
-            minHeight: '100vh',
-            background: colors.background,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backdropFilter: 'blur(10px)',
-        }}>
+        <>
             <Breadcrum segments={["Projects"]} />
             
-            <div style={{
-                padding: '6rem 2rem 2rem',
-                maxWidth: '1200px',
-                margin: '0 auto',
-            }}>
-                <h1 style={{
-                    fontSize: '3.5rem',
-                    fontWeight: 'bold',
-                    color: colors.textPrimary,
-                    marginBottom: '1rem',
-                    textAlign: 'center',
-                    textShadow: isDark ? '2px 2px 8px rgba(0,0,0,0.5)' : '2px 2px 8px rgba(0,0,0,0.2)',
-                }}>
-                    Past & Ongoing Projects
-                </h1>
+            <div 
+                className="relative min-h-screen w-screen overflow-auto flex flex-col"
+                style={{
+                    background: colors.background,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backdropFilter: 'blur(10px)',
+                }}
+            >
+                <div className="flex-1 w-screen flex items-start justify-center py-12 md:py-16 lg:py-20 mt-12 md:mt-0">
+                    <div className="w-[95%] md:w-[90%] lg:w-[85%] max-w-[1200px] mx-auto pb-8">
+                        <h1 style={{
+                            fontSize: '3.5rem',
+                            fontWeight: 'bold',
+                            color: colors.textPrimary,
+                            marginBottom: '1rem',
+                            textAlign: 'center',
+                            textShadow: isDark ? '2px 2px 8px rgba(0,0,0,0.5)' : '2px 2px 8px rgba(0,0,0,0.2)',
+                        }}>
+                            Past & Ongoing Projects
+                        </h1>
                 
                 <p className='font-semibold!' style={{
                     fontSize: '1.8rem',
@@ -175,16 +189,34 @@ const ProjectDirectory = () => {
                                 },
                             }}
                         >
-                            <CardMedia
-                                component="img"
-                                height="200"
-                                image={project.image}
-                                alt={project.title}
-                                sx={{
-                                    objectFit: 'cover',
-                                    filter: 'brightness(0.9)',
-                                }}
-                            />
+                            {project.video ? (
+                                <CardMedia
+                                    component="video"
+                                    height="200"
+                                    image={project.video}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    sx={{
+                                        objectFit: 'cover',
+                                        filter: 'brightness(0.9)',
+                                        height: '200px',
+                                        pointerEvents: 'none',
+                                    }}
+                                />
+                            ) : (
+                                <CardMedia
+                                    component="img"
+                                    height="200"
+                                    image={project.image}
+                                    alt={project.title}
+                                    sx={{
+                                        objectFit: 'cover',
+                                        filter: 'brightness(0.9)',
+                                    }}
+                                />
+                            )}
                             <CardContent>
                                 <h2 style={{
                                     fontSize: '1.5rem',
@@ -233,13 +265,15 @@ const ProjectDirectory = () => {
                         </Card>
                     ))}
                 </Box>
-            </div>
-            <div className='p-4 mx-4'>
+                    </div>
+                </div>
 
-            <Links isDark={true}/>
+                <div className="mt-auto w-full">
+                    <Links isDark={isDark}/>
+                </div>
+                <LightSwitch />
             </div>
-            <LightSwitch />
-        </div>
+        </>
     );
 };
 

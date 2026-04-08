@@ -1,38 +1,27 @@
 import { useState } from "react";
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import MessageIcon from '@mui/icons-material/Message';
+import LocalCafeIcon from '@mui/icons-material/LocalCafe';
 
 export default function Links({ isDark, isUnlit }) {
   const lightMode = {
     background: '#ffffff',
     textDefault: '#000000',
-    textHover: '#2c2c2c',
-    paperBg: 'rgba(245, 245, 245, 0.7)',
-    svgPath1: '#c49ef3',
-    svgPath2: '#dcaff7',
-    svgPath3: '#eeb58f',
-    svgPath4: '#f8ceb6',
+    textHover: '#2b2b2b',
   };
 
   const unlitMode = {
-        background: '#2b2b2b',
-        textDefault: '#0c0c0c',
-        textHover: '#e2914e',
-        paperBg: 'transparent',
-        svgPath1: '#6b3fa0',
-        svgPath2: '#8b5fbf',
-        svgPath3: '#9d6b2f',
-        svgPath4: '#b8895f',
-    }
+    background: '#0f0f0f',
+    textDefault: '#ffffff',
+    textHover: '#f3f3f3',
+  };
 
   const darkMode = {
-    background: '#1a1a1a',
+    background: '#101010',
     textDefault: '#ffffff',
-    textHover: '#ffcfa8',
-    paperBg: 'rgba(30, 30, 30, 0.7)',
-    svgPath1: '#6b3fa0',
-    svgPath2: '#8b5fbf',
-    svgPath3: '#9d6b2f',
-    svgPath4: '#b8895f',
+    textHover: '#f3f3f3',
   };
 
   const colors = isDark ? darkMode : isUnlit ? unlitMode : lightMode;
@@ -40,103 +29,113 @@ export default function Links({ isDark, isUnlit }) {
 
   const linkStyle = (linkId) => ({
     fontWeight: 700,
-    display: 'inline-block',
-    textDecorationThickness: '0px',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.75rem',
+    textDecoration: 'none',
     color: hoveredLink === linkId ? colors.textHover : colors.textDefault,
-    transform: hoveredLink === linkId ? 'translateY(-4px)' : 'translateY(0)',
+    transform: hoveredLink === linkId ? 'translateY(-1px)' : 'translateY(0)',
     transition: 'all 0.2s ease',
   });
 
+  const iconContainerStyle = (linkId) => ({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '1.8rem',
+    height: '1.8rem',
+    color: hoveredLink === linkId ? colors.textHover : colors.textDefault,
+    transition: 'all 0.2s ease',
+    flexShrink: 0,
+  });
+
   const iconStyle = {
-    fontSize: '2rem',
-    color: colors.textDefault, // keep icon color consistent with current theme
+    fontSize: '1.2rem',
     transition: 'color 0.2s ease',
   };
 
+  const links = [
+    {
+      id: 'github',
+      label: 'Github',
+      href: 'https://github.com/rmac-silva/',
+      display: 'Github',
+      ariaLabel: 'Go to my GitHub page',
+      icon: GitHubIcon,
+    },
+    {
+      id: 'linkedin',
+      label: 'LinkedIn',
+      href: 'https://www.linkedin.com/in/ricardo-silva-a1479739a/',
+      display: 'LinkedIn',
+      ariaLabel: 'Go to my LinkedIn page',
+      icon: LinkedInIcon,
+    },
+    {
+      id: 'email',
+      label: 'Email Me',
+      href: 'mailto:rmac.silva@campus.fct.unl.pt',
+      display: 'Email Me',
+      ariaLabel: 'Send me an email',
+      icon: EmailIcon,
+    },
+    {
+      id: 'discord',
+      label: 'Discord',
+      href: 'https://discord.com/users/249619725682868224',
+      display: 'Discord',
+      ariaLabel: 'Go to my Discord profile',
+      icon: (props) => <i className="fa-brands fa-discord" style={{ ...props.style, color: 'inherit' }}></i>,
+    },
+    {
+      id: 'kofi',
+      label: 'Ko-fi',
+      href: 'https://ko-fi.com/rmacsilva',
+      display: 'ko-fi.com/rmacsilva',
+      ariaLabel: 'Go to my Ko-fi page',
+      icon: LocalCafeIcon,
+    },
+  ];
+
   return (
-    <div className="flex flex-row flex-wrap mt-15 text-xl md:text-3xl lg:text-4xl space-x-10 md:space-x-20 gap-y-4" style={{ color: colors.textDefault }}>
-      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        <span className="mr-2">Github</span>
-        <a
-          href="https://github.com/rmac-silva/"
-          style={linkStyle('github')}
-          onMouseEnter={() => setHoveredLink('github')}
-          onMouseLeave={() => setHoveredLink(null)}
-          onTouchStart={() => setHoveredLink('github')}
-          onTouchEnd={() => setHoveredLink(null)}
-          aria-label="Go to my github page"
-        >
-          rmac-silva
-        </a>
-        <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
-      </div>
+    <footer
+      className="mt-auto w-full self-stretch"
+      style={{ backgroundColor: colors.background }}
+    >
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-2 px-4 py-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:justify-center gap-y-4 gap-x-6 md:gap-x-10 lg:gap-x-14">
+          {links.map((link) => {
+            const Icon = link.icon;
 
-      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        <span className="mr-2">LinkedIn</span>
-        <a
-          href="https://www.linkedin.com/in/ricardo-silva-a1479739a/"
-          style={linkStyle('linkedin')}
-          onMouseEnter={() => setHoveredLink('linkedin')}
-          onMouseLeave={() => setHoveredLink(null)}
-          onTouchStart={() => setHoveredLink('linkedin')}
-          onTouchEnd={() => setHoveredLink(null)}
-          aria-label="Go to my linkedin page"
-        >
-          @rmac-silva
-        </a>
-        <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
-      </div>
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                style={linkStyle(link.id)}
+                onMouseEnter={() => setHoveredLink(link.id)}
+                onMouseLeave={() => setHoveredLink(null)}
+                onTouchStart={() => setHoveredLink(link.id)}
+                onTouchEnd={() => setHoveredLink(null)}
+                aria-label={link.ariaLabel}
+                className="min-w-0 px-1 py-1 text-sm sm:text-[0.9rem] md:text-[0.95rem]"
+                onFocus={() => setHoveredLink(link.id)}
+                onBlur={() => setHoveredLink(null)}
+                title={link.display}
+              >
+                <div style={iconContainerStyle(link.id)}>
+                  <Icon style={iconStyle} />
+                </div>
 
-      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        <span className="mr-2">Email</span>
-        <a
-          href="mailto:rmac.silva@campus.fct.unl.pt"
-          style={linkStyle('email')}
-          onMouseEnter={() => setHoveredLink('email')}
-          onMouseLeave={() => setHoveredLink(null)}
-          onTouchStart={() => setHoveredLink('email')}
-          onTouchEnd={() => setHoveredLink(null)}
-          aria-label="Contact me on Discord"
-        >
-          rmac-silva
-        </a>
-        <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
+                <div className="flex min-w-0 flex-col leading-tight">
+                  <span className="truncate font-medium">
+                    {link.display}
+                  </span>
+                </div>
+              </a>
+            );
+          })}
+        </div>
       </div>
-
-      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        <span className="mr-2">Discord</span>
-        <a
-          href="https://discord.com/users/249619725682868224"
-          style={linkStyle('discord')}
-          onMouseEnter={() => setHoveredLink('discord')}
-          onMouseLeave={() => setHoveredLink(null)}
-          onTouchStart={() => setHoveredLink('discord')}
-          onTouchEnd={() => setHoveredLink(null)}
-          aria-label="Contact me on Discord"
-        >
-          @gilbio
-        </a>
-        <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
-      </div>
-
-      <div className="flex flex-row items-center leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out">
-        <span className="mr-2 text-nowrap">Leave a tip</span>
-        <a
-          href="https://ko-fi.com/rmacsilva"
-          style={linkStyle('kofi')}
-          onMouseEnter={() => setHoveredLink('kofi')}
-          onMouseLeave={() => setHoveredLink(null)}
-          onTouchStart={() => setHoveredLink('kofi')}
-          onTouchEnd={() => setHoveredLink(null)}
-          aria-label="Go to my Ko-fi page"
-        >
-          ko-fi/rmac-silva
-        </a>
-        <ArrowOutwardIcon className="ml-1 mt-1" style={iconStyle} />
-      </div>
-
-      
-      
-    </div>
+    </footer>
   );
 }

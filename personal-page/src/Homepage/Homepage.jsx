@@ -140,7 +140,7 @@ export default function Homepage() {
         <>
             {!oldMode && (
                 <div 
-                    className="relative min-h-screen w-full overflow-x-hidden font-sans overscroll-none"
+                    className="relative min-h-[100dvh] w-full font-sans overflow-x-hidden flex flex-col"
                     style={{ backgroundColor: colors.background }}
                 >
                     {/* Animated SVG background placed behind content */}
@@ -159,13 +159,13 @@ export default function Homepage() {
                     </div>
 
                     {/* Content container */}
-                    <div className="relative z-10 w-full h-full">
-                        <main className="w-full px-6 md:px-12 lg:px-24 py-20 flex flex-col items-start min-h-screen">
+                    <div className="relative z-10 w-full flex-1 flex flex-col">
+                        <main className="w-full px-6 md:px-12 lg:px-24 py-20 flex flex-col items-start flex-1 pb-8">
                             <h6 className="leading-relaxed mb-6 text-3xl md:text-5xl lg:text-6xl transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
                                 Hi there!
                             </h6>
 
-                            <h6 className="text-3xl md:text-5xl lg:text-6xl leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
+                            <h6 className="text-2xl md:text-4xl lg:text-5xl leading-relaxed whitespace-pre-wrap transition-all duration-200 ease-in-out" style={{color: colors.textDefault}}>
                                 I'm{' '}
                                 <a
                                     href="/about"
@@ -178,7 +178,7 @@ export default function Homepage() {
                                 >
                                     Ricardo
                                 </a>
-                                , a developer from Portugal with interests in game development, networking and fullstack applications. You can check out my{' '}
+                                , a developer from Portugal with interests in game development, IoT and fullstack applications. You can check out my{' '}
                                 <a
                                     href="/projects"
                                     style={linkStyle('projects')}
@@ -190,7 +190,43 @@ export default function Homepage() {
                                 >
                                     past projects
                                 </a>
-                                {' '}that I've worked on, from simple scripts to a complete{' '}
+                                {' '}that I've worked on, a{' '}
+                                <a
+                                    href="/projects/dndyonder"
+                                    style={linkStyle('dndyonder')}
+                                    onMouseEnter={() => setHoveredLink('dndyonder')}
+                                    onMouseLeave={() => setHoveredLink(null)}
+                                    onTouchStart={() => setHoveredLink('dndyonder')}
+                                    onTouchEnd={() => setHoveredLink(null)}
+                                    aria-label="Go to D&D Sheet Manager project"
+                                >
+                                    D&D Sheet Manager
+                                </a>, multiple{' '}
+                                <a
+                                    href="/projects/roguelike202"
+                                    style={linkStyle('roguelike202')}
+                                    onMouseEnter={() => setHoveredLink('roguelike202')}
+                                    onMouseLeave={() => setHoveredLink(null)}
+                                    onTouchStart={() => setHoveredLink('roguelike202')}
+                                    onTouchEnd={() => setHoveredLink(null)}
+                                    aria-label="Go to Roguelike 202 project"
+                                >
+                                    game jams
+                                </a>
+                                 ,{' '}
+                                <a
+                                    href="/projects/sts2mod"
+                                    style={linkStyle('sts2mod')}
+                                    onMouseEnter={() => setHoveredLink('sts2mod')}
+                                    onMouseLeave={() => setHoveredLink(null)}
+                                    onTouchStart={() => setHoveredLink('sts2mod')}
+                                    onTouchEnd={() => setHoveredLink(null)}
+                                    aria-label="Go to Slay The Spire 2 Mod project"
+                                >
+                                    game mods{' '}
+                                </a>
+
+                                 and even a complete{' '}
                                 <a
                                     href="/projects/blazy-bot"
                                     style={linkStyle('blazy')}
@@ -200,11 +236,14 @@ export default function Homepage() {
                                     onTouchEnd={() => setHoveredLink(null)}
                                     aria-label="Go to Blazy Bot project"
                                 >
-                                    RPG inside Discord
-                                </a>!
+                                    RPG inside Discord!
+                                </a>
                             </h6>
-                            <Links isDark={isDark} isUnlit={isUnlit} />
                         </main>
+                    </div>
+
+                    <div className="mt-auto w-full z-10 relative">
+                        <Links isDark={isDark} isUnlit={isUnlit}/>
                     </div>
 
                     {/* Spotlight mask using radial gradient */}

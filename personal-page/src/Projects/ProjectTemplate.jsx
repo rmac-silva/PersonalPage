@@ -72,7 +72,7 @@ export default function ProjectTemplate({ projectData }) {
             {/* Lightbox Modal */}
             {lightboxImage && (
                 <div 
-                    className="fixed inset-0 z-[10000] flex items-center justify-center p-4"
+                    className="fixed inset-0 z-10000 flex items-center justify-center p-4"
                     style={{ backgroundColor: 'rgba(0, 0, 0, 0.9)' }}
                     onClick={() => setLightboxImage(null)}
                 >
@@ -93,19 +93,19 @@ export default function ProjectTemplate({ projectData }) {
             )}
 
             <div 
-                className="relative min-h-screen w-screen overflow-auto"
+                className="relative min-h-screen w-screen overflow-auto flex flex-col"
                 style={{ backgroundColor: colors.background }}
             >
-                <div className="min-h-screen w-screen flex items-start justify-center py-20">
-                    <div className="p-10 rounded-lg w-[85%] max-w-full mx-4">
+                <div className="flex-1 w-screen flex items-start justify-center py-12 md:py-16 lg:py-20">
+                    <div className="w-[95%] md:w-[90%] lg:w-[85%] max-w-full mx-auto pb-8">
                         {/* Header Section */}
-                        <Paper elevation={3} className="p-8 rounded-lg mb-6" style={{ backgroundColor: colors.paperBg }}>
-                            <h1 className="text-5xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>
+                        <Paper elevation={3} className="p-5 md:p-8 rounded-lg mb-6" style={{ backgroundColor: colors.paperBg }}>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>
                                 {projectData.title}
                             </h1>
                             
                             {projectData.subtitle && (
-                                <h2 className="text-2xl mb-4" style={{ color: colors.textSecondary }}>
+                                <h2 className="text-lg md:text-xl lg:text-2xl mb-4" style={{ color: colors.textSecondary }}>
                                     {projectData.subtitle}
                                 </h2>
                             )}
@@ -200,16 +200,16 @@ export default function ProjectTemplate({ projectData }) {
                             <Paper 
                                 key={index}
                                 elevation={3} 
-                                className="p-8 rounded-lg mb-6" 
+                                className="p-5 md:p-8 rounded-lg mb-6" 
                                 style={{ backgroundColor: colors.paperBg }}
                             >
                                 {section.title && (
-                                    <h2 className="text-3xl font-bold mb-4" style={{ color: colors.textPrimary }}>
+                                    <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: colors.textPrimary }}>
                                         {section.title}
                                     </h2>
                                 )}
                                 
-                                <div className="text-xl leading-8" style={{ color: colors.textSecondary }}>
+                                <div className="text-base md:text-lg lg:text-xl leading-relaxed md:leading-8" style={{ color: colors.textSecondary }}>
                                     {section.content}
                                 </div>
 
@@ -223,7 +223,7 @@ export default function ProjectTemplate({ projectData }) {
                                             return (
                                                 <div 
                                                     key={`img-${imgIndex}`}
-                                                    className="flex-grow shrink-0 basis-[300px] max-w-[450px] flex flex-col items-center"
+                                                    className="grow shrink-0 basis-112.5 max-w-112.5 flex flex-col items-center"
                                                 >
                                                     <div
                                                         className="rounded-lg overflow-hidden cursor-pointer transition-transform hover:scale-105 w-full"
@@ -252,7 +252,7 @@ export default function ProjectTemplate({ projectData }) {
                                             return (
                                                 <div 
                                                     key={`vid-${vidIndex}`}
-                                                    className="flex-grow shrink-0 basis-[300px] max-w-[450px] flex flex-col items-center"
+                                                    className="grow shrink-0 basis-112.5 max-w-112.5 flex flex-col items-center"
                                                 >
                                                     <div 
                                                         className="rounded-lg overflow-hidden w-full"
@@ -286,15 +286,15 @@ export default function ProjectTemplate({ projectData }) {
 
                         {/* Technologies Used */}
                         {projectData.technologies && projectData.technologies.length > 0 && (
-                            <Paper elevation={3} className="p-8 rounded-lg mb-6" style={{ backgroundColor: colors.paperBg }}>
-                                <h2 className="text-3xl font-bold mb-4" style={{ color: colors.textPrimary }}>
+                            <Paper elevation={3} className="p-5 md:p-8 rounded-lg mb-6" style={{ backgroundColor: colors.paperBg }}>
+                                <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: colors.textPrimary }}>
                                     Technologies Used
                                 </h2>
-                                <div className="flex flex-wrap gap-3">
+                                <div className="flex flex-wrap gap-2 md:gap-3">
                                     {projectData.technologies.map((tech, index) => (
                                         <span 
                                             key={index}
-                                            className="px-4 py-2 rounded-lg text-lg font-semibold"
+                                            className="px-3 md:px-4 py-1.5 md:py-2 rounded-lg text-base md:text-lg font-semibold"
                                             style={{ 
                                                 backgroundColor: isDark ? 'rgba(255, 200, 100, 0.2)' : 'rgba(255, 200, 100, 0.3)',
                                                 color: colors.textPrimary
@@ -309,7 +309,7 @@ export default function ProjectTemplate({ projectData }) {
                     </div>
                 </div>
 
-                <div className="px-10 pb-10">
+                <div className="mt-auto w-full">
                     <Links isDark={isDark} />
                 </div>
                 <LightSwitch />

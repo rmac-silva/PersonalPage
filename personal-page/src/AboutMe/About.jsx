@@ -223,7 +223,7 @@ export default function About() {
         <>
             <Breadcrum segments={["About Me"]}>
             </Breadcrum>
-            <div className="relative min-h-screen w-full overflow-hidden bg-center bg-cover">
+            <div className="relative min-h-screen w-screen overflow-auto bg-center bg-cover flex flex-col">
                 {/* background layers (double buffer) */}
                 <div
                     aria-hidden
@@ -251,8 +251,8 @@ export default function About() {
                 />
 
                 {/* Page content (keeps original structure) */}
-                <div className="min-h-screen w-screen bg-center bg-cover flex items-start justify-center" style={{ backgroundImage: "url('/images/about-bg.jpg')" }}>
-                    <div className="p-4 md:p-10 rounded-lg w-[95%] md:!w-[80%] mt-10 mx-auto">
+                <div className="flex-1 w-screen bg-center bg-cover flex items-start justify-center" style={{ backgroundImage: "url('/images/about-bg.jpg')" }}>
+                    <div className="p-4 md:p-10 rounded-lg w-[95%] md:!w-[80%] mt-10 mx-auto pb-8">
                         <Paper elevation={3} className="p-8 rounded-lg" style={{ backgroundColor: colors.paperBg }}>
                             <h1 className="!text-4xl !md:text-4xl font-extrabold mb-4" style={{ color: colors.textPrimary }}>About Me</h1>
 
@@ -304,7 +304,7 @@ export default function About() {
 
                     </div>
                 </div>
-                <div className="px-10 mb-10 -mt-10">
+                <div className="mt-auto w-full">
                     <Links isDark={true} />
                 </div>
                 <LightSwitch ></LightSwitch>

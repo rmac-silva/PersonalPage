@@ -28,12 +28,26 @@ export default function ThesisProject() {
                     </>
                 ),
                 images: [
-                    
-                         "/projects/thesis/GesturePressOne.png",
-                         "/projects/thesis/GameIntermission.png",
-                         "/projects/thesis/GesturePressTwo.png",
+                     {
+                        url: "/projects/thesis/GesturePressOne.png",
+                        title: "User interacting with a button by holding their hand over it"
+                     }, {
+                        url: "/projects/thesis/GameIntermission.png",
+                        title: "In-game intermission where the user can interact with the agent"
+                     }, {
+                        url:"/projects/thesis/GesturePressTwo.png",
+                        title: "User picking up a collectbile by holding their hand over it"
+                     }
+                         
+                         
                     
                 ],
+                videos: [
+                    {
+                        url: "/projects/thesis/Overview.mp4",
+                        title: "Game Overview"
+                    }
+                ]
             },
             {
                 title:"Unity Game",
@@ -71,8 +85,11 @@ export default function ThesisProject() {
                         </p>
                     </>
                 ),
-                images: [
-                    "/projects/thesis/ThesisHome.png",
+                images: [ {
+
+                    url: "/projects/thesis/ThesisHome.png",
+                    title: "User dodging sawblades"
+                }
                 ]
             },
             {
@@ -100,8 +117,17 @@ export default function ThesisProject() {
                         </p>
                     </>
                 ),
-                images: [
-                    "/projects/thesis/GameIntermission.png",
+                images: [ {
+                    url: "/projects/thesis/GameIntermission.png",
+                    title: "(A) - Talk Button; (B) - Message History; (C) - Details of session;"
+                }
+                    
+                ],
+                videos: [
+                    {
+                        url: "/projects/thesis/Interaction.mp4",
+                        title: "Agent Interaction"
+                    }
                 ]
             },
             {
@@ -127,8 +153,17 @@ export default function ThesisProject() {
                         </p>
                     </>
                 ),
-                images: [
-                    "/projects/thesis/WizardInterface.png",
+                images: [ {
+
+                    url: "/projects/thesis/WizardInterface.png",
+                    title: "Research Interface"
+                }
+                ],
+                videos: [
+                    {
+                        url: "/projects/thesis/WoZ.mp4",
+                        title: "Research Interface Demo"
+                    }
                 ]
             },
             

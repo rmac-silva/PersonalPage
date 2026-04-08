@@ -15,6 +15,7 @@ import SheetsWrapper from './Projects/GoogleSheets.jsx';
 import Roguelike202 from './Projects/Roguelike202.jsx';
 import VillageAlchemist from './Projects/VillageAlchemist.jsx';
 import BrackeysJam from './Projects/Brackeys.jsx';
+import StS2Mod from './Projects/Stst2mod.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -32,6 +33,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/projects/google-sheets-wrapper" element={<> <SheetsWrapper /> </>} />
         <Route path="/projects/village-alchemist" element={<VillageAlchemist />} />
         <Route path="/projects/brackeys-jam" element={<BrackeysJam />} />
+        <Route path="/projects/sts2mod" element={<StS2Mod />} />
       </Routes>
 
     </Router>

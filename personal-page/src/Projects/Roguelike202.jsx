@@ -18,21 +18,27 @@ export default function Roguelike202() {
                 title: "Game",
                 content: (
                     <>
-                        <div className='justify-center flex'>
-                            <iframe src="https://itch.io/embed-upload/16183755?color=333333" allowFullScreen="" width="980" height="640"><a href="https://gilbio.itch.io/roguelike202">Play Roguelike202 on itch.io</a></iframe>
-                        </div>
-                        <div className='flex flex-col justify-center items-center mt-4 mb-4'>
+                        <div className='hidden lg:block'>
+                            <div className='justify-center flex'>
+                                <iframe src="https://itch.io/embed-upload/16183755?color=333333" allowFullScreen="" width="980" height="640"><a href="https://gilbio.itch.io/roguelike202">Play Roguelike202 on itch.io</a></iframe>
+                            </div>
+                            <div className='flex flex-col justify-center items-center mt-4 mb-4'>
 
-                        </div>
-                        <div className='justify-center flex font-semibold text-2xl'>Controls<br></br>
-                        </div>
-                        <div className='justify-center flex'>
+                            </div>
+                            <div className='justify-center flex font-semibold text-2xl'>Controls<br></br>
+                            </div>
+                            <div className='justify-center flex'>
 
-                            <ul className='list-disc ml-6'>
-                                <li>WASD / Arrow Keys: Move</li>
-                                <li>Spacebar / Enter: Attack</li>
-                                <li>E: Interact with Shrines and Shop</li>
-                            </ul>
+                                <ul className='list-disc ml-6'>
+                                    <li>WASD / Arrow Keys: Move</li>
+                                    <li>Spacebar / Enter: Attack</li>
+                                    <li>E: Interact with Shrines and Shop</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div className='lg:hidden flex flex-col items-center justify-center p-8 text-center bg-black/10 dark:bg-white/10 rounded-lg'>
+                            <p className='text-2xl font-semibold'>Game Preview only available on desktop machines</p>
+                            <p className='text-md mt-2 opacity-80'>Please visit this page on a device with a larger screen to play the embedded game.</p>
                         </div>
                     </>
                 ),
@@ -59,9 +65,30 @@ export default function Roguelike202() {
                     </>
                 ),
                 images: [
-                    "/projects/roguelike202-jam/Roguelike202Gameplay1.png",
-                    "/projects/roguelike202-jam/Roguelike202Gameplay2.png",
-                    "/projects/roguelike202-jam/Roguelike202Gameplay3.png",
+                     {
+                        url: "/projects/roguelike202-jam/Roguelike202Gameplay1.png",
+                        title: "Player in the map"
+                     },
+                     {
+                        url: "/projects/roguelike202-jam/Roguelike202Gameplay2.png",
+                        title: "Game over screen detailing the stats of the run"
+                     },
+                     {
+                        url: "/projects/roguelike202-jam/Roguelike202Gameplay3.png",
+                        title: "Battle Screen"
+                     },
+                        
+                    
+                ],
+                videos: [
+                    {
+                        url: "/projects/roguelike202-jam/Overview.mp4",
+                        title: "Gameplay Overview"
+                    },
+                    {
+                        url: "/projects/roguelike202-jam/Battle.mp4",
+                        title: "Battle Example"
+                    }
                 ]
             },
             {
@@ -97,6 +124,13 @@ export default function Roguelike202() {
                         </p>
                     </>
                 ),
+                videos: [
+                    {
+
+                        url: "/projects/roguelike202-jam/TerrainGen.mp4",
+                        title: "Procedural Generation Overview"
+                    }
+                ]
             },
             {
                 title: "Takeaways",
