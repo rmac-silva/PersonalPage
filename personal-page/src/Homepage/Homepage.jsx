@@ -192,7 +192,7 @@ export default function Homepage() {
                                 </a>
                                 {' '}that I've worked on, a{' '}
                                 <a
-                                    href="/projects/dndyonder"
+                                    href="/projects/dnd-yonder"
                                     style={linkStyle('dndyonder')}
                                     onMouseEnter={() => setHoveredLink('dndyonder')}
                                     onMouseLeave={() => setHoveredLink(null)}
