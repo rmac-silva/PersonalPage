@@ -25,6 +25,16 @@ const projects = [
         link: '/projects/dnd-yonder',
     },
     {
+        id: 'mythras-point-buy',
+        title: 'Mythras Point Buy',
+        subtitle: 'A Mythras Character Creation Tool',
+        description: 'A tool to help create Mythras characters using their point buy system. It allows the player to create characters easily without having to keep track of all the different points. It also allows for custom rulesets, allowing players to add custom skills, save and export them.',
+        tags: ['QT', 'C++', 'Mythras', 'Frontend', 'Application'],
+        image: '/projects/mythras-point-buy/Overview.png',
+        video: '/projects/mythras-point-buy/Overview.mp4', 
+        link: '/projects/mythras-point-buy',
+    },
+    {
         id: 'roguelike202-jam',
         title: 'Roguelike202 - Itch.io/Minijam202',
         subtitle: 'My submission to the Itch.io Minijam 202 for January 2026.',
