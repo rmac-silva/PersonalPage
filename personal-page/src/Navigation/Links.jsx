@@ -74,7 +74,7 @@ export default function Links({ isDark, isUnlit }) {
     {
       id: 'email',
       label: 'Email Me',
-      href: 'mailto:rmac.silva@campus.fct.unl.pt',
+      href: 'mailto:rmacdev7274@gmail.com',
       display: 'Email Me',
       ariaLabel: 'Send me an email',
       icon: EmailIcon,
